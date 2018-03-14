@@ -1,0 +1,11 @@
+import("rjags")
+export("ordinalRR","ordinalRR.control","preprocess","make.rater","compute.q","ordinalRR.sim")
+S3method(print,ordinalRR)
+S3method(summary,ordinalRR)
+S3method(density,ordinalRR)
+S3method(hist,ordinalRR)
+S3method(plot,rater)
+importFrom("graphics", "hist","plot", "abline", "axis", "box", "lines", "par")
+importFrom("stats", "dnorm", "qnorm", "rgamma", "rlnorm", "rnorm",
+           "toeplitz", "update","density", "median")
+

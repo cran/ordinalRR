@@ -19,7 +19,7 @@ plot(r2,plt.type="rater",xlab="",ylab="q2")
 plot(r4,plt.type="rater",xlab="",ylab="")
 plot(r1,r2,plt.type="measure",xlab="x",ylab="Measure")
 plot(r3,r4,plt.type="measure",xlab="x",ylab="")
-title("Figure 1: Culp, Ryan, Chen, and Hamada (2018)",outer=T,line=-1)
+title("Figure 1: Culp, Ryan, Chen, and Hamada (2018)",outer=TRUE,line=-1)
 
 invisible(readline(prompt="Press [enter] to continue."))
 
@@ -27,7 +27,7 @@ invisible(readline(prompt="Press [enter] to continue."))
 data(followup)
 x=preprocess(followup)
 g.random<-ordinalRR(x)
-g.fixed<-ordinalRR(x,random=F)
+g.fixed<-ordinalRR(x,random=FALSE)
 
 #Table 2 from Culp, Ryan, Chen, and Hamada (2018)
 random=round(apply(g.random$a,2,median),1)
@@ -45,7 +45,7 @@ hist(g.random,xlab="x",ylab="Density",main="Figure 4: Culp, Ryan, Chen, and Hama
 
 #Figure 5 from Culp, Ryan, Chen, and Hamada (2018)
 density(g.random,plt.type="all",xlim=c(.6,1),type="l",col="grey")
-title("Figure 5: Culp, Ryan, Chen, and Hamada (2018)",outer=T,line=-2)
+title("Figure 5: Culp, Ryan, Chen, and Hamada (2018)",outer=TRUE,line=-2)
 
 invisible(readline(prompt="Press [enter] to continue."))
 

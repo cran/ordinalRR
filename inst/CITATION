@@ -1,8 +1,8 @@
-citHeader("To cite ordinalRR in publications use:")
+citHeader("To cite ordinalRR in publications use")
 
 
 citEntry(entry = "Article",
-title= "Analysis of Repeatability and Reproducibility Studies with Ordinal Measurments.",
+title= "Analysis of Repeatability and Reproducibility Studies with Ordinal Measurements.",
 author= personList(as.person("S L Culp"),as.person("K J Ryan"), as.person("J Chen"), as.person("M S Hamada")),
 journal= "Technometrics",
 year= "2018",
@@ -13,6 +13,6 @@ pages= "",
 
 textVersion=
 paste("Culp, S.L., Ryan, K.J., Chen, J., and Hamada, M.S. (2018).",
-"Analysis of Repeatability and Reproducibility Studies with Ordinal Measurments.",
+"Analysis of Repeatability and Reproducibility Studies with Ordinal Measurements.",
 "Technometrics, doi:10.1080/00401706.2018.1429317.")
 )

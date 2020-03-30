@@ -2,8 +2,8 @@ Package: ordinalRR
 Type: Package
 Title: Analysis of Repeatability and Reproducibility Studies with
         Ordinal Measurements
-Version: 1.0
-Date: 2018-3-10
+Version: 1.1
+Date: 2020-3-29
 Author: Ken Ryan <kjryan@mail.wvu.edu>
 Maintainer: Ken Ryan <kjryan@mail.wvu.edu>
 Depends: R (>= 2.10), rjags
@@ -13,5 +13,5 @@ Description: Implements Bayesian data analyses of balanced repeatability and rep
 License: GPL-2
 NeedsCompilation: no
 Repository: CRAN
-Packaged: 2018-03-13 15:57:01 UTC; kjryan
-Date/Publication: 2018-03-14 10:04:40 UTC
+Packaged: 2020-03-29 20:11:55 UTC; kjryan
+Date/Publication: 2020-03-30 09:00:04 UTC

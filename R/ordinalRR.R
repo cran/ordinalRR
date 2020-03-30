@@ -191,7 +191,7 @@ ordinalRR.sim=function(H=4L,I=30L,J=3L,K=2L,mu.a=2.6,sigma.a=.2,lambda=c(11,44,2
       for(h in 2:H)
       p=c(p,exp(sum(a[j]*(x[i]-d[j,1:(h-1)]))))
       p=p/sum(p)
-      dataset[i,(j-1)*K+1:K]=sample(1:H,K,replace=T,p)
+      dataset[i,(j-1)*K+1:K]=sample(1:H,K,replace=TRUE,p)
   }
   preprocess(as.data.frame(dataset),J,K,H)
 }
@@ -233,7 +233,7 @@ plot.rater=function(x,y,plt.type=c("rater","measure"),m=0,lwd=1.2,...)
         if (class(x) != "rater") stop("Object x must be of class `rater'")
         alpha=rep(x$alpha,glen)
         cuts=x$cutpoints
-        delta=matrix(rep(cuts,glen),nrow=glen,byrow=T)
+        delta=matrix(rep(cuts,glen),nrow=glen,byrow=TRUE)
         xgrid=seq(-3,3,length=glen)
         p=computep(alpha,xgrid,delta)
         plot(0,.5,ylim=c(0,1),xlim=c(-3,3),xaxt="n",yaxt="n",type="n",...)
@@ -255,11 +255,11 @@ plot.rater=function(x,y,plt.type=c("rater","measure"),m=0,lwd=1.2,...)
         xgrid=matrix(seq(-3,3,length=glen),ncol=1)
         
         alpha=rep(x$alpha,glen)
-        delta=matrix(rep(x$cutpoints,glen),nrow=glen,byrow=T)
+        delta=matrix(rep(x$cutpoints,glen),nrow=glen,byrow=TRUE)
         p1=computep(alpha,xgrid,delta)
 
         alpha=rep(y$alpha,glen)
-        delta=matrix(rep(y$cutpoints,glen),nrow=glen,byrow=T)
+        delta=matrix(rep(y$cutpoints,glen),nrow=glen,byrow=TRUE)
         p2=computep(alpha,xgrid,delta)
 
         repeat1=rowSums(p1%*%Bm*p1)
@@ -414,7 +414,7 @@ summary.ordinalRR<-function (object, decimals=1,...){
     matches[j]=matches[j]+sum(x[,K*(j-1)+k1]==x[,K*(j-1)+k2])
     matches=round(matches/(I*choose(K,2)),decimals+2)
 
-    dat=cbind(apply(a,2,median),t(matrix(apply(d,2,median),3)))
+    dat=cbind(apply(a,2,median),t(matrix(apply(d,2,median),H-1))) #H-1 was incorrectly 3 in version 1
     dat=cbind(1:dim(dat)[1],matches,round(dat,decimals))
     dimnames(dat)[[2]]=c("Rater j","Repeatability","a_j",paste0("d_{j,",1:(H-1),"}"))
     cat("\nSimple repeatability and model parameter estimates by rater:\n")
@@ -437,7 +437,7 @@ summary.ordinalRR<-function (object, decimals=1,...){
     matches=round(matches/(K^2*I),decimals+2)
     
     matches=cbind(r1,r2,matches)
-    dimnames(matches)[[1]]=NULL
+    #dimnames(matches)[[1]]=NULL #Version 1 had this line
     dimnames(matches)[[2]]=c("Rater j","Rater j\'","(R&R)_{j,j\'}")
     cat("\nSimple repeatability and reproducibility (R&R) point estimates for pairs of raters:\n")
     print(as.data.frame(matches),row.names=FALSE)

@@ -45,7 +45,7 @@ data(followup)
 followup
 x=preprocess(followup)
 g.random<-ordinalRR(x)
-g.fixed<-ordinalRR(x,random=F)
+g.fixed<-ordinalRR(x,random=FALSE)
 }
 \dontshow{
 data(followup)
